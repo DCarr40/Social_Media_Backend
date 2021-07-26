@@ -13,13 +13,12 @@ router.post("/register", async (req, res) => {
     const newUser = await new User({
       username: req.body.username,
       email: req.body.email,
-      passowrd: hashedPassword,
+      password: hashedPassword,
     });
 
     //save new user and return response
     const user = await newUser.save();
     res.status(200).json(user);
-    
   } catch (err) {
     console.error(err);
   }
